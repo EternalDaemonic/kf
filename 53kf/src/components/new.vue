@@ -1,10 +1,13 @@
 <template>
+<div>
 	<div class="nav">
 		
 		<linec :items='items'></linec>
 		<!--<input type="text" name="" id="" v-model="distance" />-->
-		<router-view></router-view>
 	</div>
+		<router-view></router-view>
+</div>
+
 </template>
 
 <script>
