@@ -1,21 +1,32 @@
 <template>
-        <div id="example">
-            <select v-model="prov">
-                <option v-for="option in arr" :value="option.name">
-                    {{ option.name }}
-                </option>
-            </select>
-            <select v-model="city">
-                <option v-for="option in cityArr" :value="option">
-                    {{ option}}
-                </option>
-            </select>
-            <select v-model="district">
-                <option v-for="option in districtArr1" :value="option">
-                    {{ option}}
-                </option>
-            </select>
-        </div>
+    <div id="example">
+        <!-- <select v-model="prov">
+            <option v-for="option in arr" :value="option.name">
+                {{ option.name }}
+            </option>
+        </select>
+        <select v-model="city">
+            <option v-for="option in cityArr" :value="option">
+                {{ option}}
+            </option>
+        </select>
+        <select v-model="district">
+            <option v-for="option in districtArr1" :value="option">
+                {{ option}}
+            </option>
+        </select> -->
+        <Select v-model="prov" style="width:96px;height:32px">
+            <Option v-for="option in arr" :value="option.name" :key="option.name">
+                {{ option.name }}
+            </Option>
+        </Select>
+         <Select v-model="city" style="width:96px;height:32px">
+            <Option v-for="item in cityArr" :value="item" :key="item">{{item}}</Option>
+        </Select>
+         <Select v-model="district" style="width:96px;height:32px">
+            <Option v-for="item in districtArr1" :value="item" :key="item">{{item}}</Option>
+        </Select>
+    </div>
 </template>
 
 <script>
@@ -28,7 +39,8 @@ export default {
             district: '西湖区',
             cityArr: [],
             districtArr: [],
-            districtArr1: []
+            districtArr1: [],
+            key:''
         }
     },
     methods: {
@@ -4719,14 +4731,13 @@ PROVINCE_DATA["110"]["area"] = {};
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
-#example{
-    margin-top: 20px;
+#example {
     display: inline-block;
-    select{
-        border:1px solid #bcbcbc;
-        border-radius:2px;
-        width:94px;
-        height:30px;
+    select {
+        border: 1px solid #bcbcbc;
+        border-radius: 2px;
+        width: 94px;
+        height: 30px;
         text-indent: 6px;
         margin-right: 15px;
     }

@@ -49,6 +49,9 @@
 	form {
 		font-size: 14px;
 		font-family: MicrosoftYaHei;
+		color:#2c2c2c;
+		letter-spacing:1px;
+		line-height:15px;
 		.person {
 			list-style-type: none;
 			padding: 0;

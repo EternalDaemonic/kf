@@ -187,7 +187,6 @@ export default {
     };
   },
   created(){
-    console.log(this.clientWidth)
     this.clientHeight = `${document.documentElement.clientHeight}px`;
     this.clientWidth = `${document.documentElement.clientWidth - 250}px`;
     const that = this;

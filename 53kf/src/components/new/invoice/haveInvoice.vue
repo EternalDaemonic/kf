@@ -25,6 +25,7 @@
 			color: #9f9f9f;
 			letter-spacing: 1px;
 			margin-left: 167px;
+			display: inline-block;
 			&:first-child{
 				margin-left: 80px;
 			}

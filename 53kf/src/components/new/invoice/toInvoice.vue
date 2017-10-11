@@ -23,6 +23,7 @@
 			color: #9f9f9f;
 			letter-spacing: 1px;
 			margin-left: 251px;
+			display: inline-block;
 			&:first-child{
 				margin-left: 80px;
 			}

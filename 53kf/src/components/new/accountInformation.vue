@@ -166,8 +166,9 @@ export default {
     background: #ffa51e;
     width: 96px;
     height: 32px;
-    border: none;
+    border: none;    
     margin: 50px 0 0 176px;
+    color:#fff;
   }
 }
 </style>

@@ -48,6 +48,7 @@
 			height: 32px;
 			background: #2c87ea;
 			margin: 50px 0 0 115px;
+			color: #fff;
 			border: none;
 		}
 	}
