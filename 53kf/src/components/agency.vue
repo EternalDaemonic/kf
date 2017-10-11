@@ -1,8 +1,11 @@
 <template>
+<div>
+
    <div class="nav">
 		<linec :items='items'></linec>
-		<router-view></router-view>
    </div>
+		<router-view></router-view>
+</div>
 </template>
 
 <script>

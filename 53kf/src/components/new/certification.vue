@@ -7,6 +7,7 @@
     </div>
     <hr>
     <form action="">
+      <!-- 左侧认证信息 -->
       <ul>
         <li>
           <span>公司地区</span>
@@ -57,6 +58,7 @@
         <li class="certif-license">
           <span>营业执照注册号</span>
           <input type="text" v-model="license">
+          <span>每个企业最多可认证5个快服帐号</span>
         </li>
         <li>
           <span>挂码网址</span>
@@ -81,6 +83,18 @@
           <input type="text" v-model="fax">
         </li>
       </ul>
+      <!-- 上传营业执照 -->
+      <div class="business-license">
+        <div>
+          <span>营业执照</span><img src="./../../assets/img/new/green.svg" alt="">
+          <span>已完成文字</span>
+          <span>未完成认证</span>
+        </div>
+        <div class="certif-img"></div>
+        <button>更换</button>
+      </div>
+      <!-- 提交表单 -->
+      <button>提交企业认证</button>
     </form>
 
   </div>
@@ -411,7 +425,9 @@ form {
   letter-spacing: 1px;
   line-height: 15px;
   margin-top: 20px;
+  display: inline-block;
   ul {
+    display: inline-block;
     list-style-type: none;
     li {
       margin-left: 30px;
@@ -458,11 +474,68 @@ form {
         color: #fff;
       }
     }
-    .certif-license{
-      span{
+    .certif-license {
+      input {
+        width: 172px;
+      }
+      span {
         margin-right: 15px;
+        &:nth-of-type(2) {
+          font-size: 14px;
+          color: #ff7979;
+          letter-spacing: 1px;
+          margin-left: 10px;
+        }
       }
     }
+  }
+  .business-license {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 200px;
+    margin-top: 10px;
+    span {
+      &:nth-of-type(1) {
+        margin-right: 15px;
+      }
+      &:nth-of-type(n+2) {
+        margin-right: 30px;
+        font-family: MicrosoftYaHei;
+        font-size: 14px;
+        color: #00a645;
+        letter-spacing: 1.17px;
+      }
+      &:nth-of-type(n+3) {
+        color: #ff7979;
+      }
+    }
+    .certif-img {
+      margin-left: 74px;
+      margin-top: 10px;
+      background: #f5f5f5;
+      border: 1px solid #cdcdcd;
+      width: 370px;
+      height: 261px;
+    }
+    button {
+      background: #2c87ea;
+      width: 64px;
+      height: 32px;
+      margin-left: 383px;
+      margin-top: 10px;
+      color:#fff;
+      border: none;
+    }
+  }
+  &>button{
+    background: #2c87ea;
+     width:128px;
+      height: 32px;
+      display: block;
+      margin-left: 1100px;
+      color:#fff;
+      border: none;
+      margin-right: 0;
   }
 }
 </style>

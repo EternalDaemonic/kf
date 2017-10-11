@@ -1,4 +1,6 @@
 <template>
+<div>
+
   <div class="nav">
     <ul>
       <li v-for='(item,index,key) in items' :key='item.title' @click="change(index)">
@@ -7,8 +9,9 @@
     </ul>
     <hr />
     <div class="box" :style="{left:distance +'px'}"></div>
-    <router-view></router-view>
   </div>
+    <router-view></router-view>
+</div>
 </template>
 
 <script>
