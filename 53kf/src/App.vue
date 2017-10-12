@@ -1,6 +1,6 @@
 <template>
   <!-- 头部 -->
-  <div id="app" :style="{height:clientHeight}">
+  <div id="app" :style="{height:clientHeight+'px'}">
     <div class="header">
       <div class="logo">
         <img src="./assets/img/logo.svg" alt="图片未加载">
@@ -13,14 +13,14 @@
 
     <div class="content">
       <!-- 侧边菜单 -->
-      <ul class="menu" :style="{height:clientHeight}">
+      <ul class="menu" :style="{height:clientHeight+'px'}">
         <li v-for='(item,index) in items' :key="item.title" @click="change(index,item.href)" :style="{background:index1 == index?color2:color1}">
           <img :src="item.src" alt="">
           <router-link :to="item.href">{{item.title}}</router-link>
         </li>
       </ul>
       <!-- 显示模块 -->
-      <div class="view" :style="{width:clientWidth}">
+      <div class="view" :style="{width:clientWidth+'px',height:clientHeight+'px'}">
         <router-view></router-view>
       </div>
     </div>
@@ -51,6 +51,8 @@
   }
   img {
     vertical-align: middle;
+    width: 25px;
+    margin-top: 12.5px;
   }
   .logo {
     width: 88px;
@@ -69,6 +71,7 @@
 .content {
   width: 100%;
   min-width: 1366px;
+  overflow: auto;
 }
 
 .menu {
@@ -99,7 +102,7 @@
 .view {
   width: 100%;
   margin-left: 0;
-  overflow: hidden;
+  overflow:auto;
   clear: both;
   display: inline-block;
 }
@@ -111,7 +114,14 @@ import product from './assets/img/voucher.svg'
 import order from './assets/img/order.svg'
 import memberAdd from './assets/img/member-add.svg'
 import money from './assets/img/money.svg'
+import {mapState} from 'vuex'
 export default {
+  computed:{
+    ...mapState({
+      clientHeight:state => state.size.height,
+      clientWidth:state => state.size.width - 250
+    })
+  },
   data() {
     return {
       items: [{
@@ -160,9 +170,7 @@ export default {
       color1: '#3a4952',
       color2: '#2c3c46',
       index1: 0,
-      key: '',
-      clientHeight: '600px',
-      clientWidth: '600px'
+      key: ''
     }
   },
   methods: {
@@ -178,21 +186,21 @@ export default {
     }
   },
   mounted() {
-    this.clientHeight = `${document.documentElement.clientHeight}px`;
-    this.clientWidth = `${document.documentElement.clientWidth}px`;
     const that = this;
     window.onresize = function temp() {
-      that.clientHeight = `${document.documentElement.clientHeight}px`;
-      that.clientWidth = `${document.documentElement.clientWidth - 250}px`;
+      that.$store.commit('SIZE',{
+          width:document.documentElement.clientWidth,
+        height:document.documentElement.clientHeight
+      })
     };
   },
   created(){
-    this.clientHeight = `${document.documentElement.clientHeight}px`;
-    this.clientWidth = `${document.documentElement.clientWidth - 250}px`;
-    const that = this;
+     const that = this;
      window.onload = function temp() {
-      that.clientHeight = `${document.documentElement.clientHeight}px`;
-      that.clientWidth = `${document.documentElement.clientWidth - 250}px`;
+       that.$store.commit('SIZE',{
+        width:document.documentElement.clientWidth,
+        height:document.documentElement.clientHeight
+      })
     };
   }
 }

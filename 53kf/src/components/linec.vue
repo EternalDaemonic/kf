@@ -11,36 +11,35 @@
 </template>
 
 <script>
-  import {mapState} from 'vuex'
-  export default {
-    data() {
-      return {
-        key: ''
-      }
-    },
-    computed: {
-      ...mapState({
-		distance: state => state.line.distance,
-		sub:state => state.line.sub
+import { mapState } from 'vuex'
+export default {
+  data() {
+    return {
+      key: ''
+    }
+  },
+  computed: {
+    ...mapState({
+      distance: state => state.line.distance,
+      sub: state => state.line.sub
+    })
+  },
+  props: ['items'],
+  methods: {
+    change: function(index) {
+      console.log(localStorage.getItem('data'));
+      let distance = 58 + index * 114;
+      let sub = index;
+      this.$store.commit('MOVE', {
+        distance: distance,
+        sub: sub
       })
-    },
-    props: ['items'],
-    methods: {
-      change: function (index) {
-		  console.log(localStorage.getItem('data'));
-        let distance = 58 + index * 114;
-		let sub = index;
-		this.$store.commit('MOVE',{
-			distance:distance,
-			sub:sub
-		})
-	  }
     }
   }
+}
 
 </script>
 
 <style lang="less">
- 
 
 </style>

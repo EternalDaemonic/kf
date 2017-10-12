@@ -58,7 +58,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang='less'>
+<style lang='less' scoped>
 #account {
   margin-top: 25px;
   font-family: MicrosoftYaHei;
@@ -96,10 +96,11 @@ export default {
             }
           }
         }
-        &:nth-child(2) {
+        &:nth-child(3) {
           span {
             display: inline-block;
             margin-right: 21px;
+            letter-spacing:1.17px;
             &:nth-of-type(1) {
               color: #00a645;
             }
@@ -157,6 +158,11 @@ export default {
           dd {
             color: #9d9d9d;
             font-weight: bold;
+          }
+        }
+        &:first-child{
+          dd{
+            color: #FA782C;
           }
         }
       }
