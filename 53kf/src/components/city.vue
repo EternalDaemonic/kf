@@ -4733,8 +4733,7 @@ PROVINCE_DATA["110"]["area"] = {};
 <style lang="less">
 #example {
     display: inline-block;
-    select {
-        border: 1px solid #bcbcbc;
+    .ivu-select {
         border-radius: 2px;
         width: 94px;
         height: 30px;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="certif">
     <div class="certification-top">
       <span>我的认证</span>
       <span>></span>
@@ -96,7 +96,6 @@
       <!-- 提交表单 -->
       <button>提交企业认证</button>
     </form>
-
   </div>
 </template>
 
@@ -400,142 +399,145 @@ let group = {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
-.certification-top {
-  font-family: MicrosoftYaHei;
-  font-size: 14px;
-  color: #9f9f9f;
-  letter-spacing: 1px;
-  line-height: 15px;
-  margin-left: 30px;
-  span {
-    &:nth-child(1) {
-      color: #2c87ea;
+#certif {
+  margin-top: 10px;
+  .certification-top {
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    color: #9f9f9f;
+    letter-spacing: 1px;
+    line-height: 15px;
+    margin-left: 30px;
+    span {
+      &:nth-child(1) {
+        color: #2c87ea;
+      }
     }
   }
-}
 
-hr {
-  width: 100%;
-}
+  hr {
+    width: 100%;
+  }
 
-form {
-  font-family: MicrosoftYaHei;
-  font-size: 14px;
-  color: #2c2c2c;
-  letter-spacing: 1px;
-  line-height: 15px;
-  margin-top: 20px;
-  display: inline-block;
-  ul {
+  &>form {
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    color: #2c2c2c;
+    letter-spacing: 1px;
+    line-height: 15px;
+    margin-top: 20px;
     display: inline-block;
-    list-style-type: none;
-    li {
-      margin-left: 30px;
+    ul {
+      display: inline-block;
+      list-style-type: none;
+      li {
+        margin-left: 30px;
+        vertical-align: top;
+        height: 32px;
+        line-height: 32px;
+        margin-bottom: 25px;
+        span {
+          margin-right: 25px;
+        }
+        .ivu-select-single .ivu-select-selection .ivu-select-placeholder,
+        .ivu-select-single .ivu-select-selection .ivu-select-selected-value {
+          padding-right: 10px;
+          font-family: MicrosoftYaHei;
+          font-size: 14px;
+          color: #2c2c2c;
+          letter-spacing: 1px;
+        }
+        .ivu-select-item:hover {
+          background: #ecf6fd;
+        }
+        input {
+          border: 1px solid #bcbcbc;
+          border-radius: 2px;
+          width: 205px;
+          height: 30px;
+          text-indent: 7px;
+        }
+      }
+      .certif-name {
+        span {
+          margin-right: 15px;
+        }
+      }
+      .certif-phone {
+        span {
+          margin-right: 30px;
+        }
+        button {
+          background: #2c87ea;
+          width: 64px;
+          height: 32px;
+          border: none;
+          color: #fff;
+        }
+      }
+      .certif-license {
+        input {
+          width: 172px;
+        }
+        span {
+          margin-right: 15px;
+          &:nth-of-type(2) {
+            font-size: 14px;
+            color: #ff7979;
+            letter-spacing: 1px;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+    .business-license {
+      display: inline-block;
       vertical-align: top;
-      height: 32px;
-      line-height: 32px;
-      margin-bottom: 25px;
+      margin-left: 200px;
+      margin-top: 10px;
       span {
-        margin-right: 25px;
+        &:nth-of-type(1) {
+          margin-right: 15px;
+        }
+        &:nth-of-type(n+2) {
+          margin-right: 30px;
+          font-family: MicrosoftYaHei;
+          font-size: 14px;
+          color: #00a645;
+          letter-spacing: 1.17px;
+        }
+        &:nth-of-type(n+3) {
+          color: #ff7979;
+        }
       }
-      .ivu-select-single .ivu-select-selection .ivu-select-placeholder,
-      .ivu-select-single .ivu-select-selection .ivu-select-selected-value {
-        padding-right: 10px;
-        font-family: MicrosoftYaHei;
-        font-size: 14px;
-        color: #2c2c2c;
-        letter-spacing: 1px;
-      }
-      .ivu-select-item:hover {
-        background: #ecf6fd;
-      }
-      input {
-        border: 1px solid #bcbcbc;
-        border-radius: 2px;
-        width: 205px;
-        height: 30px;
-        text-indent: 7px;
-      }
-    }
-    .certif-name {
-      span {
-        margin-right: 15px;
-      }
-    }
-    .certif-phone {
-      span {
-        margin-right: 30px;
+      .certif-img {
+        margin-left: 74px;
+        margin-top: 10px;
+        background: #f5f5f5;
+        border: 1px solid #cdcdcd;
+        width: 370px;
+        height: 261px;
       }
       button {
         background: #2c87ea;
         width: 64px;
         height: 32px;
-        border: none;
+        margin-left: 383px;
+        margin-top: 10px;
         color: #fff;
+        border: none;
       }
     }
-    .certif-license {
-      input {
-        width: 172px;
-      }
-      span {
-        margin-right: 15px;
-        &:nth-of-type(2) {
-          font-size: 14px;
-          color: #ff7979;
-          letter-spacing: 1px;
-          margin-left: 10px;
-        }
-      }
-    }
-  }
-  .business-license {
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 200px;
-    margin-top: 10px;
-    span {
-      &:nth-of-type(1) {
-        margin-right: 15px;
-      }
-      &:nth-of-type(n+2) {
-        margin-right: 30px;
-        font-family: MicrosoftYaHei;
-        font-size: 14px;
-        color: #00a645;
-        letter-spacing: 1.17px;
-      }
-      &:nth-of-type(n+3) {
-        color: #ff7979;
-      }
-    }
-    .certif-img {
-      margin-left: 74px;
-      margin-top: 10px;
-      background: #f5f5f5;
-      border: 1px solid #cdcdcd;
-      width: 370px;
-      height: 261px;
-    }
-    button {
+    &>button {
       background: #2c87ea;
-      width: 64px;
-      height: 32px;
-      margin-left: 383px;
-      margin-top: 10px;
-      color:#fff;
-      border: none;
-    }
-  }
-  &>button{
-    background: #2c87ea;
-     width:128px;
+      width: 128px;
       height: 32px;
       display: block;
       margin-left: 1100px;
-      color:#fff;
+      color: #fff;
       border: none;
       margin-right: 0;
+    }
   }
 }
 </style>
