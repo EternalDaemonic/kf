@@ -32,7 +32,8 @@
       <button class="btn2">按月查询</button>
     </div>
     <div class="bank-content">
-      <Table height="550" :columns="columns1" :data="data2" style="border:none"></Table>
+      <Table height="650" :columns="columns1" :data="data2" style="border:none"></Table>
+      <Page :total="dataCount" :page-size="pageSize" show-total @on-change="changepage" show-elevator></Page>
     </div>
   </div>
 </template>
@@ -75,7 +76,133 @@ export default {
           key: 'set'
         }
       ],
-      data2: [
+      pageSize:10,
+      dataCount:'0',
+      ajaxData:[],
+      data2:[]
+    }
+  },
+  methods:{
+    handData(){
+      this.ajaxData = data2;
+      this.dataCount = data2.length;
+      if (data2.length < this.pageSize){
+        this.data2 = this.ajaxData;
+      }else{
+        this.data2 = this.ajaxData.slice(0,this.pageSize);
+      }
+    },
+    changepage(index){
+      let _start = (index - 1)*this.pageSize;
+      let _end = index * this.pageSize;
+      this.data2 = this.ajaxData.slice(_start , _end);
+    }
+  },
+  created(){
+    this.handData();
+  }
+}
+let  data2 = [
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          payment:'支付宝',
+          bank: '中国农业银行金华商城支行',
+          money: -600.00,
+          time: '2017/09/10 13:10:10',
+          set: '开通功能OA全功能版3.68元,6折,优惠券抵扣0.00元, 扣除不可提现3.68元',
+        },
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          payment:'支付宝',
+          bank: '中国农业银行金华商城支行',
+          money: +600.00,
+          time: '2017/09/10 13:10:10',
+          set: '开通功能OA全功能版3.68元,6折,优惠券抵扣0.00元, 扣除不可提现3.68元',
+        },
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          payment:'支付宝',
+          bank: '中国农业银行金华商城支行',
+          money: -600.00,
+          time: '2017/09/10 13:10:10',
+          set: '开通功能OA全功能版3.68元,6折,优惠券抵扣0.00元, 扣除不可提现3.68元',
+        },
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          payment:'支付宝',
+          bank: '中国农业银行金华商城支行',
+          money: +600.00,
+          time: '2017/09/10 13:10:10',
+          set: '开通功能OA全功能版3.68元,6折,优惠券抵扣0.00元, 扣除不可提现3.68元',
+        },
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          payment:'支付宝',
+          bank: '中国农业银行金华商城支行',
+          money: -600.00,
+          time: '2017/09/10 13:10:10',
+          set: '开通功能OA全功能版3.68元,6折,优惠券抵扣0.00元, 扣除不可提现3.68元',
+        },
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          payment:'支付宝',
+          bank: '中国农业银行金华商城支行',
+          money: +600.00,
+          time: '2017/09/10 13:10:10',
+          set: '开通功能OA全功能版3.68元,6折,优惠券抵扣0.00元, 扣除不可提现3.68元',
+        },
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          payment:'支付宝',
+          bank: '中国农业银行金华商城支行',
+          money: -600.00,
+          time: '2017/09/10 13:10:10',
+          set: '开通功能OA全功能版3.68元,6折,优惠券抵扣0.00元, 扣除不可提现3.68元',
+        },
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          payment:'支付宝',
+          bank: '中国农业银行金华商城支行',
+          money: +600.00,
+          time: '2017/09/10 13:10:10',
+          set: '开通功能OA全功能版3.68元,6折,优惠券抵扣0.00元, 扣除不可提现3.68元',
+        },
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          payment:'支付宝',
+          bank: '中国农业银行金华商城支行',
+          money: -600.00,
+          time: '2017/09/10 13:10:10',
+          set: '开通功能OA全功能版3.68元,6折,优惠券抵扣0.00元, 扣除不可提现3.68元',
+        },
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          payment:'支付宝',
+          bank: '中国农业银行金华商城支行',
+          money: +600.00,
+          time: '2017/09/10 13:10:10',
+          set: '开通功能OA全功能版3.68元,6折,优惠券抵扣0.00元, 扣除不可提现3.68元',
+        },
         {
           account: 1442800,
           balance:188892.00,
@@ -177,9 +304,6 @@ export default {
           set: '开通功能OA全功能版3.68元,6折,优惠券抵扣0.00元, 扣除不可提现3.68元',
         }
       ]
-    }
-  }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -198,7 +322,7 @@ export default {
       color: #2c2c2c;
     }
     dd:nth-of-type(1) {
-      color: #FF3D3D;
+      color: #FF7B2B;
       font-weight: bolder;
       margin-right: 50px;
     }

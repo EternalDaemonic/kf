@@ -33,6 +33,7 @@ export default {
           title: '开通金额',
           align: 'center',
           key: 'money',
+           className: 'info-column'
         },
         {
           title: '产品名称',
@@ -154,6 +155,11 @@ export default {
   text-align: left;
   margin-left: 30px;
   margin-top: 1px;
+}
+.info-column{
+  font-size:14px;
+color:#ff7b2b;
+letter-spacing:0;
 }
 
 #input {

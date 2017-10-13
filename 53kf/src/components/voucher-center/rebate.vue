@@ -1,6 +1,6 @@
 <template>
   <div id="rebate">
-    <Row>
+    <Row class='one'>
       <Col span="4">购物网站</Col>
       <Col span="4">订单号</Col>
       <Col span="4">跟单时间</Col>
@@ -12,12 +12,12 @@
       </Select>
       </Col>
     </Row>
-    <hr>
     <div class='retabe-table'>
     <Row v-for="item in data" :key='item.set' v-if='select == "订单状态" ? true : select == item.set'>
       <Col  v-for="col in item" :key='col' span="4">{{col}}</Col>
     </Row>
     </div>
+    <Page :total="dataCount" :page-size="pageSize" show-total @on-change="changepage" show-elevator></Page>
   </div>
 </template>
 
@@ -26,7 +26,6 @@ export default {
   data() {
     return {
       select: '订单状态',
-      keys:'',
       key: '',
       options: [
         {
@@ -50,7 +49,65 @@ export default {
           key: '等待系统确认'
         },
       ],
-      data:[
+      data:[],
+      ajaxData:[],
+      dataCount:'0',
+      pageSize:10
+    }
+  },
+  methods: {
+    handData(){
+      this.ajaxData = data;
+      this.dataCount = data.length;
+      if (data.length < this.pageSize){
+        this.data = this.ajaxData;
+      }else{
+        this.data = this.ajaxData.slice(0,this.pageSize);
+      }
+    },
+    changepage(index){
+      let _start = (index -1)* this.pageSize;
+      let _end = index* this.pageSize;
+      this.data = this.ajaxData.slice(_start,_end);
+    }
+  },
+  created(){
+    this.handData();
+  }
+}
+let data = [
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          money: -600.00,
+          time: '2017/09/10 13:10:10',
+          set: '等待返利',
+        },
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          money: +600.00,
+          time: '2017/09/10 13:10:10',
+          set: '已经返利',
+        },
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          money: -600.00,
+          time: '2017/09/10 13:10:10',
+          set: '无效订单',
+        },
+        {
+          account: 1442800,
+          balance:188892.00,
+          type:'不可提现',
+          money: +600.00,
+          time: '2017/09/10 13:10:10',
+          set: '等待系统确认',
+        },
         {
           account: 1442800,
           balance:188892.00,
@@ -116,11 +173,6 @@ export default {
           set: '等待系统确认',
         },
       ]
-    }
-  },
-  methods: {
-  }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -134,7 +186,7 @@ export default {
     margin-bottom: 20px;
   }
   .retabe-table{
-    height:600px;
+    height:550px;
   }
   .ivu-select-selection {
     background: #ffffff;
@@ -143,6 +195,7 @@ export default {
     width: 158px;
     height: 30px;
   }
+ 
   .ivu-row{
     padding-left: 50px;
     font-family:MicrosoftYaHei;
@@ -151,9 +204,14 @@ export default {
     color:#4b4b4b;
     letter-spacing:0;
     line-height:50px;
+    border-bottom:1px solid #ddd;
     &:hover{
-      background:rgba(60,149,243,.9);
+      background:#f0fbff;
     }
+  }
+   .one:hover{
+    background:#fff;
+    padding-bottom:20px;
   }
 }
 </style>

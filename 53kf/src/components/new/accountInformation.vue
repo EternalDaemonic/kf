@@ -91,7 +91,7 @@ export default {
               margin-right: 50px;
             }
             &:nth-child(n + 3) {
-              color: #ff7b2b;
+              color: #FF7B2B;
               margin-right: 30px;
             }
           }
@@ -149,7 +149,7 @@ export default {
         }
         &:nth-child(1) {
           dd {
-            color: #FA782C;
+            color:#FF7B2B;
             font-weight: bold;
             margin-right: 30px;
           }
