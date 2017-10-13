@@ -20,7 +20,7 @@
         </li>
       </ul>
       <!-- 显示模块 -->
-      <div class="view" :style="{width:clientWidth+'px',height:clientHeight+'px'}">
+      <div class="view" :style="{width:clientWidth+'px'}">
         <router-view></router-view>
       </div>
     </div>
@@ -33,6 +33,7 @@
   width: 100%;
   height: 940px;
   overflow: hidden;
+  min-height: 1080px;
 }
 
 .header {
@@ -71,6 +72,7 @@
 .content {
   width: 100%;
   min-width: 1366px;
+  min-height: 1080px;
   overflow: auto;
 }
 
@@ -79,6 +81,7 @@
   background-color: #3a4952;
   float: left;
   height: 890px;
+  min-height: 1080px;
   li {
     width: 220px;
     height: 55px;
