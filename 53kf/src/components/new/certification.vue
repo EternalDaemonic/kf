@@ -120,6 +120,7 @@ export default {
     city
   }
 }
+
 let group = {
   group1: [
     {

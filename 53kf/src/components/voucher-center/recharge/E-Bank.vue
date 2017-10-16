@@ -18,7 +18,6 @@ export default {
 <style lang="less">
 .e-bank {
     margin-top: 24px;
-    margin-left: 30px;
     &>p {
         font-size: 12px;
         margin-bottom: 32px;

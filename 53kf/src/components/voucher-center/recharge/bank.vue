@@ -175,7 +175,6 @@ export default {
 </script>
 <style lang="less">
 .bank {
-    margin-left: 30px;
     margin-top: 40px;
     font-family: MicrosoftYaHei;
     font-size: 14px;

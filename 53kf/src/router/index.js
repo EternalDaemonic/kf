@@ -51,10 +51,12 @@ import openingStatistics from '@/components/money/openingStatistics'
 import openingDetail from '@/components/money/openingDetail'
 
 export default new Router({
+    mode: 'history',
   routes: [
     {
       path: '/news',
       component: New,
+      base:'53kf',
       children:[
         {
           path:'account-information',

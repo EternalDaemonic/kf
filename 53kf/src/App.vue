@@ -1,6 +1,6 @@
 <template>
   <!-- 头部 -->
-  <div id="app" :style="{height:clientHeight+'px'}">
+  <div id="app">
     <div class="header">
       <div class="logo">
         <img src="./assets/img/logo.svg" alt="图片未加载">
@@ -20,7 +20,7 @@
         </li>
       </ul>
       <!-- 显示模块 -->
-      <div class="view" :style="{width:clientWidth+'px'}">
+      <div class="view" :style="{width:clientWidth+'px',}">
         <router-view></router-view>
       </div>
     </div>
@@ -31,11 +31,10 @@
 
 #app {
   width: 100%;
-  height: 940px;
+  // height: 940px;
   overflow: hidden;
-  min-height: 1080px;
+  // min-height: 800px;
 }
-
 .header {
   width: 100%;
   background-color: #373d41;
@@ -72,8 +71,7 @@
 .content {
   width: 100%;
   min-width: 1366px;
-  min-height: 1080px;
-  overflow: auto;
+  // overflow: auto;
 }
 
 .menu {
@@ -81,7 +79,6 @@
   background-color: #3a4952;
   float: left;
   height: 890px;
-  min-height: 1080px;
   li {
     width: 220px;
     height: 55px;
@@ -105,7 +102,7 @@
 .view {
   width: 100%;
   margin-left: 0;
-  overflow:auto;
+  // overflow:auto;
   clear: both;
   display: inline-block;
 }
@@ -121,7 +118,12 @@ import {mapState} from 'vuex'
 export default {
   computed:{
     ...mapState({
-      clientHeight:state => state.size.height,
+      clientHeight:function(state){
+          if(state.size.height < 680){
+            return 680
+          }
+        return state.size.height - 50
+      },
       clientWidth:state => state.size.width - 250
     })
   },
