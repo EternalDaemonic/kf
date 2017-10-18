@@ -1,5 +1,5 @@
 <template>
-  <div id="rebate">
+  <div class="rebate">
     <Row class='one'>
       <Col span="4">购物网站</Col>
       <Col span="4">订单号</Col>
@@ -177,7 +177,7 @@ let data = [
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='less'>
-#rebate {
+.rebate {
   margin-top: 10px;
   margin-left: 30px;
   &>hr {

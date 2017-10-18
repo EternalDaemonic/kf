@@ -28,7 +28,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang='less'>
+<style lang='less' scoped>
 .module-manage {
   margin-top: 10px;
   margin-left: 30px;

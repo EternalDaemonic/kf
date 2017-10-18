@@ -366,28 +366,7 @@ let  data2 = [
       width: 94px;
       height: 30px;
     }
-    .ivu-input {
-      border: 1px solid #bcbcbc;
-      border-radius: 2px;
-      width: 118px;
-      height: 32px;
-    }
   }
 
-  .ivu-icon-ios-checkmark-empty {
-    transform: translate(0, -7px);
-  }
-  .ivu-table th {
-    font-family: MicrosoftYaHei;
-    font-size: 14px;
-    color: #9f9f9f;
-    background: #fff;
-    letter-spacing: 1px;
-  }
-  .ivu-table:after,
-  .ivu-table:before {
-    width: 0;
-    height: 0;
-  }
 }
 </style>

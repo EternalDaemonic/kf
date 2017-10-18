@@ -15,13 +15,13 @@
         </div>
         <h4>主题颜色</h4>
         <div>
-            <button v-for="item in color" :key="item" :style="{'background':item}"></button>
+            <button v-for="(item,index) in color" :key="item" @click="sub = index" :class='{white:index == sub}' :style="{'background':item}"></button>
         </div>
         <h4>其他设置</h4>
         <form action="">
             <ul>
-                <li>
-                    <label for="">网站目录</label>
+                <li class="web-dir">
+                    <label for="">网站目录：</label>
                     <span>tuiguang.53kf.com/</span>
                     <input type="text">
                     <button>马上访问</button>
@@ -30,12 +30,14 @@
                     <label for="">网站页签：</label>
                     <input type="text" placeholder="请设置网页显示的页签">
                 </li>
-                <li>
+                <li class="kfms">
                     <label for="">客服模式：</label>
                     <RadioGroup v-model="service">
                         <Radio label="自主模式"></Radio>
                         <Radio label="快服服务"></Radio>
                     </RadioGroup>
+                    <span>自主服务模式代理商需要自行设置客服系统接待功能和提供客户服务； 快服服务模式使用快服客服图标和客服人员提供客户服务
+                    </span>
                 </li>
                 <li>
                     <label for="">挂码风格：</label>
@@ -45,10 +47,10 @@
                     <label for="">公司名称：</label>
                     <input type="text" placeholder="请填写公司名称">
                 </li>
-                <li>
+                <li class="logo">
                     <label for="">公司logo：</label>
-                    <input type="text" placeholder="建立分辨率为152px*50px以内">
-                    <button>上传图标</button>
+                    <input type="text" placeholder="建议分辨率为152px*50px以内">
+                    <div>上传图标</div>
                 </li>
                 <li>
                     <label for="">销售电话：</label>
@@ -62,9 +64,13 @@
                     <label for="">联系方式：</label>
                     <input type="text">
                 </li>
-                <li>
+                <li class="gsjj">
                     <label for="">公司简介：</label>
                     <textarea name="" id="" cols="30" rows="10"></textarea>
+                </li>
+                <li class="web-submit">
+                    <button>提交</button>
+                    <div>预览</div>
                 </li>
             </ul>
         </form>
@@ -78,7 +84,8 @@ export default {
             isA: true,
             type: '',
             color: ['#ff0000', '#ff5004', '#ffba01', '#058721', '#2cfdff', '#0864fd', '#a801ff', '#c6c6c6'],
-            service: ''
+            service: '',
+            sub:0
         }
     },
     methods: {
@@ -121,16 +128,26 @@ let data = [
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='less'>
-button {
-    border: none;
-    outline: none;
+.label() {
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 8px;
+}
+.button() {
+    background: #2c87ea;
+    width: 96px;
+    height: 32px;
+    color: #fff;
 }
 
 .web-proxy {
     color: #2c2c2c;
     margin-top: 30px;
-    p{
-        span{
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    letter-spacing: 1px;
+    p {
+        span {
             color: #b4b4b4;
         }
     }
@@ -159,12 +176,138 @@ button {
             margin-right: 205px;
         }
     }
-    div{
+    div {
         &>button {
-        width: 42px;
-        height: 42px;
-        margin-right: 1px;
-         }
+            width: 42px;
+            height: 42px;
+            margin-right: 1px;
+            position: relative;
+        }
+        .white{
+               &::after{
+                content: '';
+                width:0;
+                height: 0;
+                border-right: 0 solid transparent;
+                border-top:0 solid transparent;
+                border-left:15px solid transparent; 
+                border-bottom:15px solid #fff; 
+                position: absolute;
+                left: 27px;
+                top: 27px;
+            }
+        }
+    }
+    form {
+        color: #5a5a5a;
+        line-height: 15px;
+        li {
+            height: 32px;
+            margin-bottom: 15px;
+            label {
+                margin-right: 5px;
+            }
+            input {
+                background: #ffffff;
+                border: 1px solid #bcbcbc;
+                border-radius: 2px;
+                width: 282px;
+                height: 30px;
+                text-indent: 7px;
+            }
+             ::-webkit-input-placeholder {
+                color: #c6c6c6;
+            }
+             :-moz-placeholder {
+                color: #c6c6c6;
+            }
+             ::-moz-placeholder {
+                color: #c6c6c6;
+            }
+             :-ms-input-placeholder {
+                color: #c6c6c6;
+            }
+        }
+        .web-dir {
+            span {
+                color: #2c87ea;
+                letter-spacing: 0;
+            }
+            input {
+                width: 148px;
+                height: 30px;
+            }
+            button {
+                .button;
+            }
+        }
+        .kfms {
+            line-height: 32px;
+            label {
+                vertical-align: top;
+            }
+            &>.ivu-radio-group {
+                vertical-align: top;
+            }
+            .ivu-radio-group-item {
+                font-size: 14px;
+                margin-right: 30px;
+            }
+            &>span {
+                display: inline-block;
+                width: 465px;
+                height: 32px;
+                margin-left: 62px;
+                color: #5a5a5a;
+                letter-spacing: 1px;
+                line-height: 20px;
+            }
+        }
+        .logo {
+            height: 64px;
+            label {
+                .label;
+                margin-right: 0;
+            }
+            input {
+                width: 282px;
+                height: 62px;
+            }
+             ::-webkit-input-placeholder {}
+            &>div {
+                display: inline-block;
+                line-height: 32px;
+                text-align: center;
+                .button;
+            }
+        }
+        .gsjj {
+            height: 96px;
+            label {
+                .label;
+            }
+            textarea {
+                background: #ffffff;
+                border: 1px solid #bcbcbc;
+                border-radius: 2px;
+                width: 282px;
+                height: 94px;
+            }
+        }
+        .web-submit {
+            margin-top: 50px;
+            button {
+                .button;
+                background: #ffa51e;
+                margin: 0 15px 0 80px;
+            }
+            &>div {
+                .button;
+                display: inline-block;
+                line-height: 32px;
+                text-align: center;
+            }
+        }
     }
 }
 </style>

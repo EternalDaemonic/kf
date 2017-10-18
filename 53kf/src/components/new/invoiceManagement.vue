@@ -55,6 +55,7 @@ export default {
 		height: 32px; // background: #fff;
 		border: none;
 		margin-left: 30px;
+		color:#2c2c2c;
 	}
 	.to {
 		background: #fff;
@@ -69,6 +70,7 @@ export default {
 		border-top: 1px solid #2C87EA;
 	}
 	.comm {
+		color:#929292;
 		background: #fbfaf8;
 		border: 1px solid #ddd;
 	}

@@ -51,195 +51,191 @@ import openingStatistics from '@/components/money/openingStatistics'
 import openingDetail from '@/components/money/openingDetail'
 
 export default new Router({
-    mode: 'history',
-  routes: [
-    {
+  mode: 'history',
+  base: __dirname,
+  routes: [{
       path: '/news',
       component: New,
-      base:'53kf',
-      children:[
-        {
-          path:'account-information',
-          name:"account-information",
-          component:accountInformation
+      children: [{
+          path: 'account-information',
+          name: "account-information",
+          component: accountInformation
         },
         {
-          path:'personal-information',
-          name:'personal-information',
-          component:personalInformation
+          path: 'personal-information',
+          name: 'personal-information',
+          component: personalInformation
         },
         {
-          path:'password-modification',
-          name:'password-modification',
-          component:passwordModification
+          path: 'password-modification',
+          name: 'password-modification',
+          component: passwordModification
         },
         {
-          path:'working-management',
-          name:'working-management',
-          component:workingManagement
+          path: 'working-management',
+          name: 'working-management',
+          component: workingManagement
         },
         {
-          path:'invoice-management',
-          name:'invoice-management',
-          component:invoiceManagement
+          path: 'invoice-management',
+          name: 'invoice-management',
+          component: invoiceManagement
         },
         {
-          path:'login-template',
-          name:'login-template',
-          component:loginTemplate
+          path: 'login-template',
+          name: 'login-template',
+          component: loginTemplate
         },
         {
-          path:'certification',
-          name:'certification',
-          component:certification
+          path: 'certification',
+          name: 'certification',
+          component: certification
         },
         {
-          path:'shipping-address',
-          name:'shipping-address',
-          component:shippingAddress
+          path: 'shipping-address',
+          name: 'shipping-address',
+          component: shippingAddress
         }
-    ]
+      ]
     },
     {
       path: '/voucher-center',
       component: voucherCenter,
-      children:[
-        {
-          path:'recharge',
-          name:'recharge',
-          component:recharge
+      children: [{
+          path: 'recharge',
+          name: 'recharge',
+          component: recharge
         },
         {
-          path:'withdraw',
-          name:'withdraw',
-          component:withdraw
+          path: 'withdraw',
+          name: 'withdraw',
+          component: withdraw
         },
         {
-          path:'bill',
-          name:'bill',
-          component:bill
+          path: 'bill',
+          name: 'bill',
+          component: bill
         },
         {
-          path:'rebate',
-          name:'rebate',
-          component:rebate
+          path: 'rebate',
+          name: 'rebate',
+          component: rebate
         },
         {
-          path:'coupon',
-          name:'coupon',
-          component:coupon
+          path: 'coupon',
+          name: 'coupon',
+          component: coupon
         }
       ]
     },
     {
       path: '/product',
       component: Product,
-      children:[
-        {
-          path:'all-products',
-          name:'all-products',
-          component:allProducts
+      children: [{
+          path: 'all-products',
+          name: 'all-products',
+          component: allProducts
         },
         {
-          path:'launched-products',
-          name:'launched-products',
-          component:launchedProducts
+          path: 'launched-products',
+          name: 'launched-products',
+          component: launchedProducts
         },
         {
-          path:'unopened-produc',
-          name:'unopened-produc',
-          component:unopenedProduc
+          path: 'unopened-produc',
+          name: 'unopened-produc',
+          component: unopenedProduc
         },
         {
-          path:'network-center',
-          name:'network-center',
-          component:networkCenter
+          path: 'network-center',
+          name: 'network-center',
+          component: networkCenter
         }
       ]
     },
     {
       path: '/order',
       component: Order,
-      children:[
-        {
-          path:'new-order',
-          name:'new-order',
-          component:newOrder
+      children: [{
+          path: 'new-order',
+          name: 'new-order',
+          component: newOrder
         },
         {
-          path:'old-order',
-          name:'old-order',
-          component:oldOrder
+          path: 'old-order',
+          name: 'old-order',
+          component: oldOrder
         }
       ]
     },
     {
       path: '/agency',
       component: Agency,
-      children:[
-        {
-          path:'member-add',
-          name:'member-add',
-          component:memberAdd
+      children: [{
+          path: 'member-add',
+          name: 'member-add',
+          component: memberAdd
         },
         {
-          path:'member-view',
-          name:'member-view',
-          component:memberView
+          path: 'member-view',
+          name: 'member-view',
+          component: memberView
         },
         {
-          path:'module-manage',
-          name:'module-manage',
-          component:moduleManage
+          path: 'module-manage',
+          name: 'module-manage',
+          component: moduleManage
         },
         {
-          path:'commission-detail',
-          name:'commission-detail',
-          component:commissionDetail
+          path: 'commission-detail',
+          name: 'commission-detail',
+          component: commissionDetail
         },
         {
-          path:'action-list',
-          name:'action-list',
-          component:actionList
+          path: 'action-list',
+          name: 'action-list',
+          component: actionList
         },
         {
-          path:'attribution-statistics',
-          name:'attribution-statistics',
-          component:attributionStatistics
+          path: 'attribution-statistics',
+          name: 'attribution-statistics',
+          component: attributionStatistics
         },
         {
-          path:'abandon-agency',
-          name:'abandon-agency',
-          component:abandonAgency
+          path: 'abandon-agency',
+          name: 'abandon-agency',
+          component: abandonAgency
         }
       ]
     },
     {
       path: '/money',
       component: Money,
-      children:[
-        {
-          path:'begin-promotion',
-          name:'begin-promotion',
-          component:beginPromotion
+      children: [{
+          path: 'begin-promotion',
+          name: 'begin-promotion',
+          component: beginPromotion
         },
         {
-          path:'extended-member',
-          name:'extended-member',
-          component:extendedMember
+          path: 'extended-member',
+          name: 'extended-member',
+          component: extendedMember
         },
         {
-          path:'opening-statistics',
-          name:'opening-statistics',
-          component:openingStatistics
+          path: 'opening-statistics',
+          name: 'opening-statistics',
+          component: openingStatistics
         },
         {
-          path:'opening-detail',
-          name:'opening-detail',
-          component:openingDetail
+          path: 'opening-detail',
+          name: 'opening-detail',
+          component: openingDetail
         }
       ]
     },
-    { path: '*', redirect: '/news/account-information' }
+    {
+      path: '*',
+      redirect: '/news/account-information'
+    }
   ]
 })

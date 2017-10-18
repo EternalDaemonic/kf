@@ -13,7 +13,7 @@
         <hr>
       </li>
     </ul>
-    <div class="mbr-view-content">
+    <div class="mbr-view-content" v-show="isA == 0">
       <Row class="one">
         <Col span="3">全称</Col>
         <Col span="3">账号</Col>
@@ -24,7 +24,6 @@
         <Col span="3">认证状态</Col>
         <Col span="3">操作</Col>
       </Row>
-      <!-- v-if='select == "订单状态" ? true : select == item.set' -->
       <div class='mbr-view-table'>
         <Row v-for="item in data" :key='item.set'>
           <Col v-for="col in item" :key='col' span="3">{{col}}</Col>
@@ -32,58 +31,32 @@
       </div>
       <Page :total="dataCount" :page-size="pageSize" show-total @on-change="changepage" show-elevator class="page"></Page>
     </div>
-
+    <div class="mbr-view-content" v-show="isA == 1">
+      <Row class="one">
+        <Col span="3">全称</Col>
+        <Col span="3">账号</Col>
+        <Col span="3">联系人</Col>
+        <Col span="3">手机号</Col>
+        <Col span="3">网址</Col>
+        <Col span="3">注册时间</Col>
+        <Col span="3">认证状态</Col>
+        <Col span="3">操作</Col>
+      </Row>
+      <div class='mbr-view-table'>
+        <Row v-for="item in data" :key='item.set'>
+          <Col v-for="col in item" :key='col' span="3">{{col}}</Col>
+        </Row>
+      </div>
+      <Page :total="dataCount" :page-size="pageSize" show-total @on-change="changepage" show-elevator class="page"></Page>
+    </div>
+    <div v-show="isA == 2">
+      <Table height="550" :columns="columns1" :data="data2" style="border:none"></Table>
+      <Page :total="dataCount" :page-size="pageSize" show-total @on-change="changepage" show-elevator class="page"></Page>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      items: [
-        {
-          val: 0,
-          name: '已添加会员'
-        },
-        {
-          val: 1,
-          name: '直属会员'
-        },
-        {
-          val: 2,
-          name: '非区域会员'
-        }
-      ],
-      isA: 0,
-      data: [],
-      ajaxData: [],
-      dataCount: '0',
-      pageSize: 10
-    }
-  },
-  methods: {
-    toggle(index) {
-      this.isA = index;
-    },
-    handData() {
-      this.ajaxData = data;
-      this.dataCount = data.length;
-      if (data.length < this.pageSize) {
-        this.data = this.ajaxData;
-      } else {
-        this.data = this.ajaxData.slice(0, this.pageSize);
-      }
-    },
-    changepage(index) {
-      let _start = (index - 1) * this.pageSize;
-      let _end = index * this.pageSize;
-      this.data = this.ajaxData.slice(_start, _end);
-    }
-  },
-  created() {
-    this.handData();
-  }
-}
 let data = [
   {
     name: '全称',
@@ -445,7 +418,123 @@ let data = [
     state: '已认证',
     set: '等待返利',
   },
-]
+],
+  data2 = [
+    {
+      account: 1442800,
+      money: '10000',
+      time: '2017/09/10 13:10:10',
+      set: '11111111111111111111'
+    },
+    {
+      account: 1442800,
+      money: '10000',
+      time: '2017/09/10 13:10:10',
+      set: '11111111111111111111'
+    },
+    {
+      account: 1442800,
+      money: '10000',
+      time: '2017/09/10 13:10:10',
+      set: '11111111111111111111'
+    },
+    {
+      account: 1442800,
+      money: '10000',
+      time: '2017/09/10 13:10:10',
+      set: '11111111111111111111'
+    },
+    {
+      account: 1442800,
+      money: '10000',
+      time: '2017/09/10 13:10:10',
+      set: '11111111111111111111'
+    },
+    {
+      account: 1442800,
+      money: '10000',
+      time: '2017/09/10 13:10:10',
+      set: '11111111111111111111'
+    }];
+export default {
+  data() {
+    return {
+      columns1: [
+        {
+          title: '账号',
+          key: 'account',
+        },
+        {
+          title: '添加人',
+          key: 'money'
+        },
+        {
+          title: '添加时间',
+          key: 'time'
+        },
+        {
+          title: '操作',
+          key: 'set'
+        },
+      ],
+      items: [
+        {
+          val: 0,
+          name: '已添加会员'
+        },
+        {
+          val: 1,
+          name: '直属会员'
+        },
+        {
+          val: 2,
+          name: '非区域会员'
+        }
+      ],
+      isA: 0,
+      data: [],
+      ajaxData: [],
+      dataCount: '0',
+      pageSize: 10,
+      data2: []
+    }
+  },
+  methods: {
+    toggle(index) {
+      this.isA = index;
+      this.handData();
+    },
+    handData() {
+      if (this.isA == 0 || this.isA == 1) {
+        this.ajaxData = data;
+        this.dataCount = data.length;
+        if (data.length < this.pageSize) {
+          this.data = this.ajaxData;
+        } else {
+          this.data = this.ajaxData.slice(0, this.pageSize);
+        }
+      } else {
+        this.ajaxData = data2;
+        this.dataCount = data.length;
+        if (data.length < this.pageSize) {
+          this.data2 = this.ajaxData;
+        } else {
+          this.data2 = this.ajaxData.slice(0, this.pageSize);
+        }
+      }
+
+    },
+    changepage(index) {
+      let _start = (index - 1) * this.pageSize;
+      let _end = index * this.pageSize;
+      this.data = this.ajaxData.slice(_start, _end);
+    }
+  },
+  created() {
+    this.handData();
+  }
+}
+
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='less'>
@@ -497,7 +586,7 @@ button {
           margin-left: 0;
         }
       }
-      .btn+hr{
+      .btn+hr {
         margin-top: -1px;
         margin-bottom: 0;
       }
@@ -528,9 +617,6 @@ button {
   .mbr-view-table {
     height: 510px;
     margin-bottom: 20px;
-  }
-  .page{
-    float: right;
   }
   .one:hover {
     background: #fff;

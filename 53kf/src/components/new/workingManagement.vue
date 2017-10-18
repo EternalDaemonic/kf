@@ -1,12 +1,12 @@
 <template>
-	<div id="work">
+	<div class="work">
 		<div class="work-header">
 			<label for="zh">账号:</label>
 			<input type="text" name="" id="zh" value="" />
 			<label for="name">姓名:</label>
 			<input type="text" name="" id="name" value="" />
 			<label for="date">添加时间:</label>
-			<div id="date">
+			<div class="date">
 				<DatePicker type="date" confirm placeholder="选择日期" style="width:120px"></DatePicker>&nbsp;-
 				<DatePicker type="date" confirm placeholder="选择日期" style="width: 120px"></DatePicker>
 			</div>
@@ -102,7 +102,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
-#work {
+.work {
 	width: 100%;
 	min-width: 1470px;
 	.work-header {
@@ -126,7 +126,7 @@ export default {
 			border: 1px solid #bcbcbc;
 			border-radius: 2px;
 		}
-		#date {
+		.date {
 			display: inline-block;
 			input {
 				width: 120px;

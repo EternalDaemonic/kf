@@ -20,7 +20,7 @@
         </li>
       </ul>
       <!-- 显示模块 -->
-      <div class="view" :style="{width:clientWidth+'px',}">
+      <div class="view" :style="{width:clientWidth+'px',height:clientHeight+'px'}">
         <router-view></router-view>
       </div>
     </div>
@@ -28,7 +28,9 @@
 </template>
 <style lang="less">
 @import './assets/less/common.less';
-
+body{
+  overflow: hidden;
+}
 #app {
   width: 100%;
   // height: 940px;
@@ -48,9 +50,9 @@
     display: inline-block;
     text-align: center;
     border-right: 1px solid#1e252a;
+    color:#ffffff;
   }
   img {
-    vertical-align: middle;
     width: 25px;
     margin-top: 12.5px;
   }
@@ -71,7 +73,7 @@
 .content {
   width: 100%;
   min-width: 1366px;
-  // overflow: auto;
+  overflow: hidden;
 }
 
 .menu {
@@ -102,7 +104,7 @@
 .view {
   width: 100%;
   margin-left: 0;
-  // overflow:auto;
+  overflow:auto;
   clear: both;
   display: inline-block;
 }
@@ -122,7 +124,12 @@ export default {
           if(state.size.height < 680){
             return 680
           }
-        return state.size.height - 50
+          let height = document.getElementsByClassName('view')[0].clientHeight;
+          if (state.size.height < height){
+            return height
+          }else{
+            return state.size.height - 50
+          }
       },
       clientWidth:state => state.size.width - 250
     })
