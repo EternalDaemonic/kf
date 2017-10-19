@@ -78,7 +78,7 @@
       </li>
     </ul>
     <div class="detail-content">
-     <table-page :data='data' :columns='columns'></table-page>
+     <table-page :data1='data' :columns='columns'></table-page>
     </div>
   </div>
 </template>
@@ -126,6 +126,116 @@ let columns = [
   }
 ],
 data = [
+  {
+    add:'zhangs@53ks.com',
+    account:'zhangs@53ks.com',
+    addTime:'2017-10-10 10:10 :10',
+    registerTime:'2017-10-10 10:10 :10',
+    open:'2017-10-10 10:10 :10',
+    certif:'已认证',
+    share:"。。。。。。。。。。。。。。。。",
+    set:'凄凄切切群群群群群群群群群群群群群群群群群群群群'
+  },
+  {
+    add:'zhangs@53ks.com',
+    account:'zhangs@53ks.com',
+    addTime:'2017-10-10 10:10 :10',
+    registerTime:'2017-10-10 10:10 :10',
+    open:'2017-10-10 10:10 :10',
+    certif:'已认证',
+    share:"。。。。。。。。。。。。。。。。",
+    set:'凄凄切切群群群群群群群群群群群群群群群群群群群群'
+  },
+  {
+    add:'zhangs@53ks.com',
+    account:'zhangs@53ks.com',
+    addTime:'2017-10-10 10:10 :10',
+    registerTime:'2017-10-10 10:10 :10',
+    open:'2017-10-10 10:10 :10',
+    certif:'已认证',
+    share:"。。。。。。。。。。。。。。。。",
+    set:'凄凄切切群群群群群群群群群群群群群群群群群群群群'
+  },
+  {
+    add:'zhangs@53ks.com',
+    account:'zhangs@53ks.com',
+    addTime:'2017-10-10 10:10 :10',
+    registerTime:'2017-10-10 10:10 :10',
+    open:'2017-10-10 10:10 :10',
+    certif:'已认证',
+    share:"。。。。。。。。。。。。。。。。",
+    set:'凄凄切切群群群群群群群群群群群群群群群群群群群群'
+  },
+  {
+    add:'zhangs@53ks.com',
+    account:'zhangs@53ks.com',
+    addTime:'2017-10-10 10:10 :10',
+    registerTime:'2017-10-10 10:10 :10',
+    open:'2017-10-10 10:10 :10',
+    certif:'已认证',
+    share:"。。。。。。。。。。。。。。。。",
+    set:'凄凄切切群群群群群群群群群群群群群群群群群群群群'
+  },
+  {
+    add:'zhangs@53ks.com',
+    account:'zhangs@53ks.com',
+    addTime:'2017-10-10 10:10 :10',
+    registerTime:'2017-10-10 10:10 :10',
+    open:'2017-10-10 10:10 :10',
+    certif:'已认证',
+    share:"。。。。。。。。。。。。。。。。",
+    set:'凄凄切切群群群群群群群群群群群群群群群群群群群群'
+  },
+  {
+    add:'zhangs@53ks.com',
+    account:'zhangs@53ks.com',
+    addTime:'2017-10-10 10:10 :10',
+    registerTime:'2017-10-10 10:10 :10',
+    open:'2017-10-10 10:10 :10',
+    certif:'已认证',
+    share:"。。。。。。。。。。。。。。。。",
+    set:'凄凄切切群群群群群群群群群群群群群群群群群群群群'
+  },
+  {
+    add:'zhangs@53ks.com',
+    account:'zhangs@53ks.com',
+    addTime:'2017-10-10 10:10 :10',
+    registerTime:'2017-10-10 10:10 :10',
+    open:'2017-10-10 10:10 :10',
+    certif:'已认证',
+    share:"。。。。。。。。。。。。。。。。",
+    set:'凄凄切切群群群群群群群群群群群群群群群群群群群群'
+  },
+  {
+    add:'zhangs@53ks.com',
+    account:'zhangs@53ks.com',
+    addTime:'2017-10-10 10:10 :10',
+    registerTime:'2017-10-10 10:10 :10',
+    open:'2017-10-10 10:10 :10',
+    certif:'已认证',
+    share:"。。。。。。。。。。。。。。。。",
+    set:'凄凄切切群群群群群群群群群群群群群群群群群群群群'
+  },
+  {
+    add:'zhangs@53ks.com',
+    account:'zhangs@53ks.com',
+    addTime:'2017-10-10 10:10 :10',
+    registerTime:'2017-10-10 10:10 :10',
+    open:'2017-10-10 10:10 :10',
+    certif:'已认证',
+    share:"。。。。。。。。。。。。。。。。",
+    set:'凄凄切切群群群群群群群群群群群群群群群群群群群群'
+  },
+  {
+    add:'zhangs@53ks.com',
+    account:'zhangs@53ks.com',
+    addTime:'2017-10-10 10:10 :10',
+    registerTime:'2017-10-10 10:10 :10',
+    open:'2017-10-10 10:10 :10',
+    certif:'已认证',
+    share:"。。。。。。。。。。。。。。。。",
+    set:'凄凄切切群群群群群群群群群群群群群群群群群群群群'
+  },
   {
     add:'zhangs@53ks.com',
     account:'zhangs@53ks.com',

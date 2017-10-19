@@ -41,9 +41,9 @@
 			<li>
 				<div>
 					<div class="radio">
-						<img src="./../../assets/img/true-bottom.png" alt=""></div>
+						<Icon type="ios-checkmark-empty" size='30' color='#fff'></Icon>
+					</div>
 					<span>邮件接受53KF最新产品、活动信息及职务相关学习知识</span>
-				</div>
 				</div>
 			</li>
 		</ul>
@@ -84,10 +84,11 @@ form {
 			line-height: 32px;
 			margin-bottom: 15px;
 			margin-left: 30px;
-			dt,dd{
+			dt,
+			dd {
 				display: inline-block;
 			}
-			dd{
+			dd {
 				margin-left: 25px;
 			}
 			input {
@@ -134,14 +135,12 @@ form {
 	.radio {
 		display: inline-block;
 		background: #2c87ea;
-		width: 15px;
-		height: 14px;
 		margin-left: 90px;
 		margin-top: 20px;
-		img {
-			vertical-align: top;
-			padding-top: 2px;
-		}
+		text-align: center;
+		border-radius: 2px;
+		width: 16px;
+		height: 16px;
 		&+span {
 			display: inline-block;
 			margin-top: 20px;

@@ -7,7 +7,7 @@
 			<dd>0.00元</dd>
 		</div>
 		<div class="coupon-fill">
-			<div class="coupon-check">
+			<div class="check">
 				<Icon type="ios-checkmark-empty" size='30' color='#fff'></Icon>
 			</div>
 			<label for="">收入</label>
@@ -244,7 +244,7 @@ var data1 = [
 			vertical-align: middle;
 			display: inline-block;
 		}
-		.coupon-check {
+		.check {
 			text-align: center;
 			background: #2c87ea;
 			border-radius: 2px;

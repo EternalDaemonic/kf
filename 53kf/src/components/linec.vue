@@ -4,6 +4,7 @@
       <li v-for='(item,index,key) in items' :key='item.title' @click="change(index)">
         <router-link :to="item.name" :style="{color:sub ==index?'#4d6e82':'black'}">{{item.title}}</router-link>
       </li>
+      <slot></slot>
     </ul>
     <hr />
     <div class="box" :style="{left:distance +'px'}"></div>
@@ -41,5 +42,11 @@ export default {
 </script>
 
 <style lang="less">
-
+.nav-right {
+  float: right;
+  font-size: 12px;
+  color: #ff7b2b;
+  letter-spacing: 0.86px;
+  
+}
 </style>
