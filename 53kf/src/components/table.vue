@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Table :columns="columns" height='550' style="border:none" :data='data'></Table>
+        <Table :columns="columns"  height='550' style="border:none;width:100%" :data='data'></Table>
         <Page :total="dataCount" :page-size="pageSize" show-total @on-change="changepage" show-elevator v-show="flag" class="page"></Page>
     </div>
 </template>

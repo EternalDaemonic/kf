@@ -20,7 +20,7 @@
         </li>
       </ul>
       <!-- 显示模块 -->
-      <div class="view" :style="{width:clientWidth+'px',height:clientHeight+'px'}">
+      <div class="view" :style="{width:clientWidth - 30+'px',height:clientHeight+'px'}">
         <router-view></router-view>
       </div>
     </div>
@@ -81,6 +81,7 @@ body{
   background-color: #3a4952;
   float: left;
   height: 890px;
+  margin-right: 30px;
   li {
     width: 220px;
     height: 55px;

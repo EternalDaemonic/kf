@@ -69,7 +69,6 @@ export default {
   .account {
     &>img {
       width: 97px;
-      margin-left: 30px;
     }
     ul {
       list-style-type: none;
@@ -117,13 +116,13 @@ export default {
     color: #177ce9;
     letter-spacing: 0.86px;
     display: inline-block;
-    margin: 7px 0 31px 51px;
+    margin: 7px 0 31px 21px;
   }
   .account-new {
     figure {
       display: inline-block;
       width: 52px;
-      margin-left: 51px;
+      margin-left: 21px;
       margin-right: 72px;
       img {
         margin-left: 13px;
@@ -173,7 +172,7 @@ export default {
     width: 96px;
     height: 32px;
     border: none;    
-    margin: 50px 0 0 176px;
+    margin: 50px 0 0 146px;
     color:#fff;
   }
 }

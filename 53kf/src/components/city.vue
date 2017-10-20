@@ -1,29 +1,14 @@
 <template>
     <div id="example">
-        <!-- <select v-model="prov">
-            <option v-for="option in arr" :value="option.name">
-                {{ option.name }}
-            </option>
-        </select>
-        <select v-model="city">
-            <option v-for="option in cityArr" :value="option">
-                {{ option}}
-            </option>
-        </select>
-        <select v-model="district">
-            <option v-for="option in districtArr1" :value="option">
-                {{ option}}
-            </option>
-        </select> -->
         <Select v-model="prov" style="width:96px;height:32px">
             <Option v-for="option in arr" :value="option.name" :key="option.name">
                 {{ option.name }}
             </Option>
         </Select>
-         <Select v-model="city" style="width:96px;height:32px">
+         <Select v-model="city" style="width:96px;height:32px" @on-change='site'>
             <Option v-for="item in cityArr" :value="item" :key="item">{{item}}</Option>
         </Select>
-         <Select v-model="district" style="width:96px;height:32px">
+         <Select v-model="district" style="width:96px;height:32px" @on-change='site'>
             <Option v-for="item in districtArr1" :value="item" :key="item">{{item}}</Option>
         </Select>
     </div>
@@ -44,6 +29,9 @@ export default {
         }
     },
     methods: {
+        site(){
+            this.$emit('child',{prov:this.prov,city:this.city,district:this.district});
+        },
         updateCity: function() {
             for (var i in this.arr) {
                 var obj = this.arr[i];

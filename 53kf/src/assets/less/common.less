@@ -16,12 +16,17 @@
     &>a:first-child{
       margin-left: 30px;
     }
+    &:first-child{
+      &>a:first-child{
+        margin-left: 0;
+      }
+    }
   }
   }
   hr {
     width: 100%;
     height: 1px;
-    margin: 20px 0 0 30px;
+    margin-top: 20px;
     border: 0;
     background: #cfcfcf;
   }
@@ -40,21 +45,24 @@
     box-shadow: 1px -1px 1px #cfcfcf;
     margin: 0;
   }
-  .ivu-table-header{
-    span{
-      font-weight: normal;
-      letter-spacing:1px;
-      color:#9f9f9f;
-    }
+  .ivu-table th {
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    font-weight: normal;
+    color: #9f9f9f;
+    background: #fff;
+    letter-spacing: 1px;
   }
   .ivu-table-tbody{
-    text-align: center;
     span{
       color:#4b4b4b;
       font-family:MicrosoftYaHei;
       font-size:14px;
       letter-spacing:0;
     }
+  }
+  .ivu-table td, .ivu-table th{
+    text-align: center;
   }
   .ivu-input{
     border:1px solid #bcbcbc;
@@ -89,19 +97,11 @@
     color: #fff;
     outline: none;
 }
-.ivu-table th{
-  background: #fff;
-}
+
 .ivu-icon-ios-checkmark-empty {
   transform: translate(0, -7px);
 }
-.ivu-table th {
-  font-family: MicrosoftYaHei;
-  font-size: 14px;
-  color: #9f9f9f;
-  background: #fff;
-  letter-spacing: 1px;
-}
+
 .ivu-table:after,
 .ivu-table:before {
   width: 0;
@@ -119,13 +119,4 @@ button{
 .page{
   float: right;
   margin-top: 20px;
-}
-*{
-  scrollbar-3dlight-color:#fff; // 3d亮色阴影边框(threedlightshadow)的外观颜色
-  scrollbar-highlight-color:#fff; // 滚动条3d高亮边框(threedhighlight)的外观颜色
-  scrollbar-arrow-color:#fff; // 滚动条方向箭头的颜色
-  scrollbar-shadow-color:#fff; // 滚动条方向箭头的颜色
-  scrollbar-darkshadow-color:#fff; // 滚动条3d暗色阴影边框(threeddarkshadow)的外观颜色
-  scrollbar-base-color:#fff; // 滚动条基准颜色
-  scrollbar-track-color:#fff; // 滚动条拖动区域的外观颜色
 }

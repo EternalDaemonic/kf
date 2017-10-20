@@ -3,7 +3,7 @@
 //     sub:0
 // } : JSON.parse(localStorage.getItem('data'));
 const state = {
-        distance:58,
+        distance:28,
         sub:0
     }
 // data = JSON.stringify(state)

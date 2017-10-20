@@ -29,7 +29,7 @@ export default {
   methods: {
     change: function(index) {
       console.log(localStorage.getItem('data'));
-      let distance = 58 + index * 114;
+      let distance = 28 + index * 114;
       let sub = index;
       this.$store.commit('MOVE', {
         distance: distance,

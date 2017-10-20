@@ -1,5 +1,5 @@
 <template>
-  <div id="certif">
+  <div class="certif">
     <div class="certification-top">
       <span>我的认证</span>
       <span>></span>
@@ -400,7 +400,7 @@ let group = {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
-#certif {
+.certif {
   margin-top: 10px;
   .certification-top {
     font-family: MicrosoftYaHei;
@@ -408,7 +408,6 @@ let group = {
     color: #9f9f9f;
     letter-spacing: 1px;
     line-height: 15px;
-    margin-left: 30px;
     span {
       &:nth-child(1) {
         color: #2c87ea;
@@ -432,7 +431,6 @@ let group = {
       display: inline-block;
       list-style-type: none;
       li {
-        margin-left: 30px;
         vertical-align: top;
         height: 32px;
         line-height: 32px;

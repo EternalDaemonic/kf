@@ -1,34 +1,68 @@
 <template>
-	<div id="have-invoice">
-		<ul>
-			<li>日期</li>
-			<li>金额(元)</li>
-			<li>抬头</li>
-			<li>收件人</li>
-			<li>收件人电话</li>
-			<li>操作</li>
-			<li>状态</li>
-			<li>快递单号</li>
-		</ul>
+	<div class="have-invoice">
+		<table-page :columns='columns' :data1='data1'></table-page>
 	</div>
 </template>
 
 <script>
+import tablePage from "@/components/table";
+let columns = [
+	{
+      title: "时间",
+      key: "time"
+	},
+	{
+      title: "金额(元)",
+      key: "money"
+    },
+    {
+      title: "账单号",
+      key: "account",
+    },
+    {
+      title: "充值方式",
+      key: "type"
+    },
+    {
+      title: "开票逾期时间",
+      key: "kpyqsj"
+    },
+    {
+      title: "操作",
+      key: "set",
+	  align: "left",
+	  className:'table-td'
+    }
+  ],
+  data1 = [
+    {
+      account: "11111111111",
+      type: "支付宝",
+      money: "10000000",
+      time: "2017-10-10 10:10:10",
+      kpyqsj: "2017-10-10 10:10:10",
+      set: "查看"
+    }
+  ];
+export default {
+  data() {
+    return {
+      columns,
+      data1
+    };
+  },
+  components: {
+    tablePage
+  }
+};
 </script>
 
 <style lang="less">
-	#have-invoice {
-		li {
-			margin-top: 30px;
-			font-family: MicrosoftYaHei;
-			font-size: 14px;
-			color: #9f9f9f;
-			letter-spacing: 1px;
-			margin-left: 167px;
-			display: inline-block;
-			&:first-child{
-				margin-left: 80px;
-			}
-		}
-	}
+.have-invoice {
+  .ivu-table {
+    .table-td {
+      text-align: left;
+    }
+  }
+}
 </style>
