@@ -1,5 +1,5 @@
 <template>
-  <div id="bill">
+  <div class="bill">
     <div class="bill-top">
       <dt>支出：</dt>
       <dd>36999.38元</dd>
@@ -308,13 +308,12 @@ let  data2 = [
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='less'>
-#bill {
+.bill {
   font-family: MicrosoftYaHei;
   font-size: 14px;
   color: #5a5a5a;
   letter-spacing: 1px;
   margin-top: 10px;
-  margin-left: 30px;
   .bill-top {
     dt,
     dd {

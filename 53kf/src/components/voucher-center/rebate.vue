@@ -179,7 +179,6 @@ let data = [
 <style lang='less'>
 .rebate {
   margin-top: 10px;
-  margin-left: 30px;
   &>hr {
     margin-left: 0;
     margin-top: 10px;

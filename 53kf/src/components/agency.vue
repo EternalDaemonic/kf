@@ -1,9 +1,11 @@
 <template>
   <div>
     <div class="nav">
+      <!-- 主账号已代理 -->
       <linec :items='items' v-show="flag">
         <span class="nav-right">恭喜您已成为53快服代理商</span>
       </linec>
+       <!-- 主账号未代理 -->
       <div class="new-agency" v-show="!flag">
         <router-link :to="{name:'member-add'}">我的代理</router-link>
         <hr />

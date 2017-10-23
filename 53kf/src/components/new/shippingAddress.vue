@@ -1,6 +1,6 @@
 <template>
   <div class="shipping">
-    <div v-for="(data,index) in items" :key="data.account">
+    <div v-for="(data,index) in items" :key="data.account" :class="{'hover':data.state}">
       <h3>{{data.account}}
         <span @click="remove(index)">删除</span>
       </h3>
@@ -33,16 +33,16 @@
         <dd>{{data.email}}</dd>
       </li>
       <li class="shipping-change">
-        <span>设置为默认收货地址</span>
-        <span>编辑</span>
+        <span v-show="!data.state" @click="set(index)">设置为默认收货地址</span>
+        <span @click="change(index)">编辑</span>
       </li>
     </div>
-      <button class="button" @click="flag = true">新增收货地址</button>
+      <button class="button" @click="change">新增收货地址</button>
     <div class="shade" v-show="flag" :style="{width:width+'px',height:height+'px'}">
     </div>
     <div class="shipping-form" v-show="flag">
       <div>
-        <h4>新增收货地址</h4>
+        <h4>{{title}}</h4>
         <span @click="flag = false">
         <Icon type="ios-close-empty" size="30" color='#d8d8d8' ></Icon>
         </span>
@@ -71,10 +71,10 @@
           <li>
             <label for="">电子邮箱：</label><input type="text" v-model="data.email"></li>
           <li class="shipping-radio">
-            <div>
-              <Icon type="ios-checkmark-empty" size='30' v-show="flag1" @click="flag1 = !flag1"></Icon>
+            <div @click="data.state = !data.state">
+              <Icon type="ios-checkmark-empty" size='30' v-show="data.state" @click="data.state = !data.state"></Icon>
             </div>
-            <span @click="flag1 = !flag1">设为默认地址</span>
+            <span @click="data.state = !data.state">设为默认地址</span>
           </li>
           <li class="shipping-btn">
             <div class="btn1" @click="submit">保存</div>
@@ -98,7 +98,8 @@ let data = [
     code: "310012",
     phone: "12345678901",
     tel: "0510-46726584",
-    email: "12178886@qq.com"
+    email: "12178886@qq.com",
+    state: false
   },
   {
     account: "分公司",
@@ -108,7 +109,8 @@ let data = [
     code: "310012",
     phone: "12345678901",
     tel: "0510-46726584",
-    email: "12178886@qq.com"
+    email: "12178886@qq.com",
+    state: true
   }
 ];
 export default {
@@ -122,7 +124,8 @@ export default {
     return {
       items: data,
       flag: false,
-      flag1: false,
+      title: "新增收货地址",
+      index: "",
       data: {
         account: "",
         name: "",
@@ -131,25 +134,61 @@ export default {
         code: "",
         phone: "",
         tel: "",
-        email: ""
+        email: "",
+        state: false
       }
     };
   },
   methods: {
     region(data) {
+      //地址地区
       this.data.region = data.prov + data.city + data.district;
     },
+    set(index){
+      this.items.forEach(function(element) {
+        element.state = false;
+      }, this);
+      this.items[index].state = true;
+    },
+    change(sub) {
+      //显示弹框
+      //判断是否是编辑
+      for (let i in this.data) {
+        this.data[i] = "";
+      }
+      if (typeof sub == "number") {
+        let arr = this.items[sub];
+        this.title = "编辑地址";
+        this.data = arr;
+        this.index = sub;
+      } else {
+        this.title = "新增收货地址";
+      }
+      this.flag = true;
+    },
     submit() {
+      //提交弹框的内容
       let obj = {};
       for (let i in this.data) {
         obj[i] = this.data[i];
-        this.data[i] = "";
       }
-      this.items.push(obj);
-      this.flag = false;
+      if ((this.data.state == true)) {
+        this.items.forEach(function(element) {
+          element.state = false;
+        }, this);
+      }
+      if (this.title == "编辑地址") {
+        this.items.splice(this.index, 1, obj);
+        this.flag = false;
+        return;
+      } else {
+        this.items.push(obj);
+        this.flag = false;
+      }
     },
     remove(index) {
-      // this.items.slice(index, index + 1);
+      //删除地址
+      this.items.splice(index, 1);
     }
   },
   components: {
@@ -165,6 +204,9 @@ export default {
   font-size: 14px;
   letter-spacing: 1px;
   line-height: 15px;
+  .hover {
+    border: 1px solid #2c87ea;
+  }
   & > div {
     display: inline-block;
     background: #ffffff;
@@ -186,7 +228,7 @@ export default {
         font-weight: normal;
         color: #ff7979;
         display: inline-block;
-        margin-right: 15px;
+        margin-right: 20px;
         float: right;
       }
     }

@@ -24,11 +24,12 @@
         <router-view></router-view>
       </div>
     </div>
+     <div class="masking" v-show="masking" :style="{'width':clientWidth+270+'px','height':clientHeight+50 + 'px'}"></div>
   </div>
 </template>
 <style lang="less">
-@import './assets/less/common.less';
-body{
+@import "./assets/less/common.less";
+body {
   overflow: hidden;
 }
 #app {
@@ -50,7 +51,7 @@ body{
     display: inline-block;
     text-align: center;
     border-right: 1px solid#1e252a;
-    color:#ffffff;
+    color: #ffffff;
   }
   img {
     width: 25px;
@@ -58,11 +59,11 @@ body{
   }
   .logo {
     width: 88px;
-    .a
+    .a;
   }
   span {
     width: 128px;
-    .a
+    .a;
   }
   &_right {
     margin: 5px 50px 15px 0;
@@ -105,94 +106,105 @@ body{
 .view {
   width: 100%;
   margin-left: 0;
-  overflow:auto;
+  overflow: auto;
   clear: both;
   display: inline-block;
 }
+.masking {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+  background: #ffffff;
+  z-index: 1;
+}
 </style>
 <script>
-import logo from './assets/img/new.svg'
-import agency from './assets/img/agency.svg'
-import product from './assets/img/voucher.svg'
-import order from './assets/img/order.svg'
-import memberAdd from './assets/img/member-add.svg'
-import money from './assets/img/money.svg'
-import {mapState} from 'vuex'
+import logo from "./assets/img/new.svg";
+import agency from "./assets/img/agency.svg";
+import product from "./assets/img/voucher.svg";
+import order from "./assets/img/order.svg";
+import memberAdd from "./assets/img/member-add.svg";
+import money from "./assets/img/money.svg";
+import { mapState } from "vuex";
 export default {
-  computed:{
+  computed: {
     ...mapState({
-      clientHeight:function(state){
-          if(state.size.height < 680){
-            return 680
-          }
-          let height = document.getElementsByClassName('view')[0].clientHeight;
-          if (state.size.height < height){
-            return height
-          }else{
-            return state.size.height - 50
-          }
+      clientHeight: function(state) {
+        // if(state.size.height < 680){
+        //   return 680
+        // }
+        return state.size.height - 50;
+        // let height = document.getElementsByClassName('view')[0].clientHeight;
+        // if (state.size.height < height){
+        //   return height
+        // }else{
+        //   return state.size.height - 50
+        // }
       },
-      clientWidth:state => state.size.width - 250
+      clientWidth: state => state.size.width - 250,
+      masking:state => state.state.masking
     })
   },
   data() {
     return {
-      items: [{
-        title: "我的信息",
-        href: {
-          name: "account-information"
+      items: [
+        {
+          title: "我的信息",
+          href: {
+            name: "account-information"
+          },
+          src: logo
         },
-        src: logo
-      },
-      {
-        title: "充值中心",
-        href: {
-          name: "recharge"
+        {
+          title: "充值中心",
+          href: {
+            name: "recharge"
+          },
+          src: agency
         },
-        src: agency
-      },
-      {
-        title: "我的产品",
-        href: {
-          name: "all-products"
+        {
+          title: "我的产品",
+          href: {
+            name: "all-products"
+          },
+          src: product
         },
-        src: product
-      },
-      {
-        title: "我的订单",
-        href: {
-          name: "new-order"
+        {
+          title: "我的订单",
+          href: {
+            name: "new-order"
+          },
+          src: order
         },
-        src: order
-      },
-      {
-        title: "我的代理",
-        href: {
-          name: "member-add"
+        {
+          title: "我的代理",
+          href: {
+            name: "member-add"
+          },
+          src: memberAdd
         },
-        src: memberAdd
-      },
-      {
-        title: "我要赚钱",
-        href: {
-          name: "begin-promotion"
-        },
-        src: money
-      }
+        {
+          title: "我要赚钱",
+          href: {
+            name: "begin-promotion"
+          },
+          src: money
+        }
       ],
-      color1: '#3a4952',
-      color2: '#2c3c46',
+      color1: "#3a4952",
+      color2: "#2c3c46",
       index1: 0,
-      key: ''
-    }
+      key: ""
+    };
   },
   methods: {
     change: function(index, name) {
       this.index1 = index;
-      this.$store.commit('MOVE', {
-        distance: 58,
+      this.$store.commit("MOVE", {
+        distance: 28,
         sub: 0
-      })
+      });
       this.$router.push({
         path: name.path
       });
@@ -201,21 +213,20 @@ export default {
   mounted() {
     const that = this;
     window.onresize = function temp() {
-      that.$store.commit('SIZE',{
-          width:document.documentElement.clientWidth,
-        height:document.documentElement.clientHeight
-      })
+      that.$store.commit("SIZE", {
+        width: document.documentElement.clientWidth,
+        height: document.documentElement.clientHeight
+      });
     };
   },
-  created(){
-     const that = this;
-     window.onload = function temp() {
-       that.$store.commit('SIZE',{
-        width:document.documentElement.clientWidth,
-        height:document.documentElement.clientHeight
-      })
+  created() {
+    const that = this;
+    window.onload = function temp() {
+      that.$store.commit("SIZE", {
+        width: document.documentElement.clientWidth,
+        height: document.documentElement.clientHeight
+      });
     };
   }
-}
-
+};
 </script>

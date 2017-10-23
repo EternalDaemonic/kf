@@ -30,7 +30,6 @@
                 <button class="e-btn" @click="flag = false">取消</button>
             </div>
         </div>
-        <div class="masking" v-if="flag" :style="{'width':clientWidth+'px','height':clientHeight+'px'}"></div>
     </div>
 </template>
 
@@ -109,14 +108,6 @@ button {
     letter-spacing: 1px;
     line-height: 15px;
     margin-top: 30px;
-    .masking {
-        position: absolute;
-        left: 0;
-        top: 0;
-        opacity: 0.5;
-        background: #ffffff;
-        z-index: 1;
-    }
     .ivu-row {
         text-align: center;
         min-width: 1200px;
