@@ -14,7 +14,7 @@
             <button class="bank-btn2" @click="add">添加汇款信息</button>
         </div>
         <div class="bank-content">
-            <Table height="500" :columns="columns1" :data="data2" style="border:none"></Table>
+            <table-page :columns='columns' :data1='data2'></table-page>
         </div>
         <div class="bank-bottom">
             <ul :style="{width:width1}">
@@ -46,10 +46,12 @@
             </div>
         </div>
         <div class="pop-up" v-show="flag">
-            <h4>添加汇款信息</h4>
-            <span @click="flag = false">
-            <Icon type="ios-close-empty" size="30" color='#d8d8d8' ></Icon>
+            <h4>添加汇款信息
+                <span @click="cancal">
+                <Icon type="ios-close-empty" size="30" color='#d8d8d8' ></Icon>
             </span>
+            </h4>
+            
             <hr>
             <form action="">
                 <ul>
@@ -104,11 +106,12 @@
 </template>
 <script>
 import { mapState } from "vuex";
+import tablePage from "@/components/table";
 export default {
   data() {
     return {
       state: "",
-      columns1: [
+      columns: [
         {
           type: "index",
           title: "序号",
@@ -152,63 +155,9 @@ export default {
           time: "2017/09/10 13:10:10",
           set: "无",
           操作: "wu"
-        },
-        {
-          account: "王小明",
-          bank: "中国农业银行金华商城支行",
-          money: "￥10000",
-          state: "已通过",
-          time: "2017/09/10 13:10:10",
-          set: "无",
-          操作: "wu"
-        },
-        {
-          account: "王小明",
-          bank: "中国农业银行金华商城支行",
-          money: "￥10000",
-          state: "已通过",
-          time: "2017/09/10 13:10:10",
-          set: "无",
-          操作: "wu"
-        },
-        {
-          account: "王小明",
-          bank: "中国农业银行金华商城支行",
-          money: "￥10000",
-          state: "已通过",
-          time: "2017/09/10 13:10:10",
-          set: "无",
-          操作: "wu"
-        },
-        {
-          account: "王小明",
-          bank: "中国农业银行金华商城支行",
-          money: "￥10000",
-          state: "已通过",
-          time: "2017/09/10 13:10:10",
-          set: "无",
-          操作: "wu"
-        },
-        {
-          account: "王小明",
-          bank: "中国农业银行金华商城支行",
-          money: "￥10000",
-          state: "已通过",
-          time: "2017/09/10 13:10:10",
-          set: "无",
-          操作: "wu"
-        },
-        {
-          account: "王小明",
-          bank: "中国农业银行金华商城支行",
-          money: "￥10000",
-          state: "已通过",
-          time: "2017/09/10 13:10:10",
-          set: "无",
-          操作: "wu"
         }
       ],
-      flag:true,
+      flag: false,
       data: {
         bank: "0",
         account: "33001676735053007108",
@@ -218,8 +167,8 @@ export default {
         user: "",
         money: "",
         date: "",
-        phone:'',
-        speak:'',
+        phone: "",
+        speak: ""
       }
     };
   },
@@ -235,21 +184,24 @@ export default {
   },
   methods: {
     add() {
-        this.flag = true;
+      this.flag = true;
       this.$store.commit("MASKING", true);
     },
-    submit(){
-
+    submit() {
+      let obj = {};
     },
-    cancal(){
-        this.flag = false;
-        this.$store.commit("MASKING", false);
+    cancal() {
+      this.flag = false;
+      this.$store.commit("MASKING", false);
     }
+  },
+  components:{
+    tablePage
   }
 };
 </script>
 <style lang="less">
-@import './../../../assets/less/up.less';
+@import "./../../../assets/less/up.less";
 .bank {
   margin-top: 40px;
   font-family: MicrosoftYaHei;
@@ -370,11 +322,11 @@ export default {
     top: 50%;
     transform: translate(-300px, -400px);
     width: 600px;
-    height: 700px;
-    z-index: 2;
-  }
-  .ivu-select-selection{
+    // height: 700px;
+    z-index: 3;
+    .ivu-select-selection {
       width: 230px;
+    }
   }
 }
 </style>

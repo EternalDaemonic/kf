@@ -38,7 +38,7 @@
 		label {
 			display: inline-block;
 			width: 70px;
-			margin: 32px 12px 0 30px;
+			margin: 32px 12px 0 0;
 			&:first-child{
 				margin-top: 10px;
 			}
@@ -47,7 +47,7 @@
 			width: 64px;
 			height: 32px;
 			background: #2c87ea;
-			margin: 50px 0 0 115px;
+			margin: 50px 0 0 85px;
 			color: #fff;
 			border: none;
 		}

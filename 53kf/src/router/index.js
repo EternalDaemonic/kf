@@ -26,9 +26,7 @@ import coupon from '@/components/voucher-center/coupon'
 
 //我的产品
 import allProducts from '@/components/products/allProducts'
-import launchedProducts from '@/components/products/launchedProducts'
-import unopenedProduc from '@/components/products/unopenedProduc'
-import networkCenter from '@/components/products/networkCenter'
+import openProducts from '@/components/products/openProducts'
 
 //我的订单
 Vue.use(Router)
@@ -134,22 +132,12 @@ export default new Router({
       children: [{
           path: 'all-products',
           name: 'all-products',
-          component: allProducts
+          component: allProducts,
         },
         {
-          path: 'launched-products',
-          name: 'launched-products',
-          component: launchedProducts
-        },
-        {
-          path: 'unopened-produc',
-          name: 'unopened-produc',
-          component: unopenedProduc
-        },
-        {
-          path: 'network-center',
-          name: 'network-center',
-          component: networkCenter
+          path:'open-products',
+          name:'open-products',
+          component:openProducts
         }
       ]
     },

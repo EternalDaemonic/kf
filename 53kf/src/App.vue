@@ -164,9 +164,9 @@ export default {
           src: agency
         },
         {
-          title: "我的产品",
+          title: "产品开通",
           href: {
-            name: "all-products"
+            name: "open-products"
           },
           src: product
         },

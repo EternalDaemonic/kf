@@ -196,197 +196,197 @@
     </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 export default {
-    computed: {
-        ...mapState({
-            clientHeight: state => 563 / 940 * state.size.height
-        })
+  computed: {
+    ...mapState({
+      clientHeight: state => 563 / 940 * state.size.height
+    })
+  },
+  data() {
+    return {
+      sub: 0,
+      btns: ["第一步:代理商条款", "第二步:缴纳保证金", "第三步:代理成功"],
+      flag: true
+    };
+  },
+  methods: {
+    cancal() {
+      this.$store.commit("SUB", 0);
     },
-    data() {
-        return {
-            sub: 0,
-            btns: ['第一步:代理商条款', '第二步:缴纳保证金', '第三步:代理成功'],
-            flag: true
-        }
+    next() {
+      if (this.flag) {
+        this.sub = 1;
+      } else {
+        return;
+      }
     },
-    methods: {
-        cancal() {
-            this.$store.commit('SUB', 0);
-        },
-        next() {
-            if (this.flag){
-                this.sub = 1;
-            }else{
-                return
-            }
-        },
-        color(index) {
-            if (index == this.sub - 1) {
-                return true
-            } else if (index == this.sub - 2) {
-                return true
-            } else if (this.sub == 2) {
-                return true
-            } else {
-                return false
-            }
-        },
-        change(index) {
-            if (this.sub == 1) {
-                if (index == 0) {
-                    this.sub = 0
-                    return
-                }
-                return
-            }
-        },
-        submit() {
-            this.$store.commit('SUB', 2);
-            this.$store.commit('STATE', true);
+    color(index) {
+      if (index == this.sub - 1) {
+        return true;
+      } else if (index == this.sub - 2) {
+        return true;
+      } else if (this.sub == 2) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    change(index) {
+      if (this.sub == 1) {
+        if (index == 0) {
+          this.sub = 0;
+          return;
         }
+        return;
+      }
+    },
+    submit() {
+      this.$store.commit("SUB", 2);
+      this.$store.commit("STATE", true);
     }
-}
+  }
+};
 </script>
 <style lang='less' scoped>
 .agent-clause {
-    margin-top: 10px;
-    .clause-top {
-        font-size: 0;
-        margin-left: 3px;
+  margin-top: 10px;
+  .clause-top {
+    font-size: 0;
+    margin-left: 3px;
+    margin-bottom: 30px;
+    .checkmark {
+      height: 11px;
+      width: 17px;
+      position: relative;
+      z-index: 2;
+      &::before {
+        position: absolute;
+        left: -5px;
+        top: -6px;
+        z-index: 2;
+      }
+    }
+    button {
+      background: #ffffff;
+      width: 199px;
+      height: 42px;
+      color: #929292;
+      font-size: 14px;
+      margin-left: 0px;
+    }
+    hr {
+      margin: 0;
+      margin-top: -1px;
+      position: relative;
+    }
+    .btn {
+      border-width: 1px 1px 1px 1px;
+      border-style: solid;
+      border-color: #ddd #ddd #fff;
+      position: relative;
+      z-index: 1;
+    }
+    .color {
+      color: #ff7b2b;
+    }
+  }
+  .one {
+    .article {
+      font-family: MicrosoftYaHei-Bold;
+      font-size: 14px;
+      color: #2c2c2c;
+      letter-spacing: 1px;
+      overflow: auto;
+      h2 {
+        margin-top: 5px;
+      }
+      p {
+        line-height: 30px;
+      }
+    }
+    & > hr {
+      margin-left: 0;
+    }
+    .clause-bottom {
+      margin-top: 30px;
+      li {
+        width: 225px;
+        margin: 0 auto;
+        list-style-type: none;
         margin-bottom: 30px;
-        .checkmark {
-            height: 11px;
-            width: 17px;
-            position: relative;
-            z-index: 2;
-            &::before {
-                position: absolute;
-                left: -5px;
-                top: -6px;
-                z-index: 2;
-            }
+        span {
+          color: #5a5a5a;
         }
         button {
-            background: #ffffff;
-            width: 199px;
-            height: 42px;
-            color: #929292;
-            font-size: 14px;
-            margin-left: 0px;
-        }
-        hr {
-            margin: 0;
-            margin-top: -1px;
-            position: relative;
-        }
-        .btn {
-            border-width: 1px 1px 1px 1px;
-            border-style: solid;
-            border-color: #ddd #ddd #fff;
-            position: relative;
-            z-index: 1;
-        }
-        .color {
-            color: #ff7b2b;
-        }
-    }
-    .one {
-        .article {
-            font-family: MicrosoftYaHei-Bold;
-            font-size: 14px;
-            color: #2c2c2c;
-            letter-spacing: 1px;
-            overflow: auto;
-            h2 {
-                margin-top: 5px;
-            }
-            p {
-                line-height: 30px;
-            }
-        }
-        &>hr {
-            margin-left: 0;
-        }
-        .clause-bottom {
-            margin-top: 30px;
-            li {
-                width: 225px;
-                margin: 0 auto;
-                list-style-type: none;
-                margin-bottom: 30px;
-                span {
-                    color: #5a5a5a;
-                }
-                button {
-                    width: 96px;
-                    height: 32px;
-                    &:nth-child(1) {
-                        background: #2c87ea;
-                    }
-                }
-                .btn2 {
-                    margin-left: 18px;
-                    background: #ffa51e;
-                }
-                .uactive {
-                    background: rgb(188, 188, 188);
-                    color: #fff;
-                    border: none;
-                }
-            }
-            .check {
-                vertical-align: middle;
-                display: inline-block;
-                text-align: center;
-                background: #2c87ea;
-                border-radius: 2px;
-                margin-left: 6px;
-                width: 16px;
-                height: 16px;
-            }
-            .check-u {
-                background: #fff;
-                border: 1px solid rgb(188, 188, 188);
-            }
-        }
-    }
-    .two {
-        li {
-            dd,
-            dt {
-                display: inline-block;
-            }
-            dt {
-                width: 108px;
-                color: #2c2c2c;
-                text-align: right;
-            }
-            &:first-child {
-                margin-bottom: 30px;
-                dd {
-                    color: #FA782C;
-                }
-            }
-            &:nth-child(2) {
-                color: #589ce1
-            }
-            button {
-                background: #ffa51e;
-                width: 96px;
-                height: 32px;
-                margin: 50px 0 0 45px;
-            }
-        }
-    }
-    .three {
-        button {
+          width: 96px;
+          height: 32px;
+          &:nth-child(1) {
             background: #2c87ea;
-            width: 64px;
-            height: 32px;
-            margin-top: 30px;
+          }
         }
+        .btn2 {
+          margin-left: 18px;
+          background: #ffa51e;
+        }
+        .uactive {
+          background: rgb(188, 188, 188);
+          color: #fff;
+          border: none;
+        }
+      }
+      .check {
+        vertical-align: middle;
+        display: inline-block;
+        text-align: center;
+        background: #2c87ea;
+        border-radius: 2px;
+        margin-left: 6px;
+        width: 16px;
+        height: 16px;
+      }
+      .check-u {
+        background: #fff;
+        border: 1px solid rgb(188, 188, 188);
+      }
     }
+  }
+  .two {
+    li {
+      dd,
+      dt {
+        display: inline-block;
+      }
+      dt {
+        width: 108px;
+        color: #2c2c2c;
+        text-align: right;
+      }
+      &:first-child {
+        margin-bottom: 30px;
+        dd {
+          color: #fa782c;
+        }
+      }
+      &:nth-child(2) {
+        color: #589ce1;
+      }
+      button {
+        background: #ffa51e;
+        width: 96px;
+        height: 32px;
+        margin: 50px 0 0 45px;
+      }
+    }
+  }
+  .three {
+    button {
+      background: #2c87ea;
+      width: 64px;
+      height: 32px;
+      margin-top: 30px;
+    }
+  }
 }
 </style>
 

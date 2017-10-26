@@ -1,5 +1,5 @@
 <template>
-	<div id="coupon">
+	<div class="coupon">
 		<div class="coupon-top">
 			<dt>支出：</dt>
 			<dd>0.00元</dd>

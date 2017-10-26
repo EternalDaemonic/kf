@@ -2,7 +2,7 @@
 //flag为是否代理
 
 const state = {
-    val:0,
+    value:1,
     flag:false,
     sub:0,
     masking:false

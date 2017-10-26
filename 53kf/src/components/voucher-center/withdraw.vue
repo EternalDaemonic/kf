@@ -1,5 +1,5 @@
 <template>
-  <div id="withdraw">
+  <div class="withdraw">
     <ul>
       <li>
         <dt>余额：</dt>
@@ -46,8 +46,7 @@ export default {
 }
 </script>
 <style lang='less' scoped>
-#withdraw {
-  margin-left: 30px;
+.withdraw {
   margin-top: 10px;
   ul {
     font-family: MicrosoftYaHei;

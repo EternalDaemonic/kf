@@ -2,10 +2,19 @@
     box-shadow: 0 4px 15px #b8b7b7;
     border: none;
     h4 {
-        display: inline-block;
+        display: block;
         font-weight: normal;
+        height: 15px;
         margin: 17px 0 18px 20px;
+        overflow: hidden;
+        span{
+            display: inline-block;
+            float: right;
+            margin-right: 15px;
+            transform: translateY(-7px);
+        }
       }
+      
       form {
         & > ul {
           width: 100%;
@@ -94,6 +103,7 @@
         }
         .up-btn{
             margin-top: 28px;
+            margin-bottom: 20px;
         }
         }
     }

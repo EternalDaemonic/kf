@@ -42,18 +42,17 @@
     </div>
     <div class="shipping-form" v-show="flag">
       <div>
-        <h4>{{title}}</h4>
-        <span @click="flag = false">
-        <Icon type="ios-close-empty" size="30" color='#d8d8d8' ></Icon>
-        </span>
+        <h4>{{title}}<span @click="flag = false">
+                <Icon type="ios-close-empty" size="30" color='#d8d8d8' ></Icon>
+            </span></h4>
         <hr>
       </div>
       <form action="">
         <ul>
           <li>
-            <label for="">地址名称：</label><input type="text" v-model="data.account" placeholder="家，公司"></li>
+            <label for="">地址名称：</label><input type="text" v-model="data.account" placeholder="总，分公司"></li>
           <li>
-            <label for="">收件人名称：</label><input type="text" v-model="data.name"></li>
+            <label for="">收件人姓名：</label><input type="text" v-model="data.name"></li>
           <li>
             <label for="" >所在地区：</label>
             <city @child='region'></city>
@@ -291,11 +290,19 @@ export default {
     border: none;
     color: #5a5a5a;
     line-height: 15px;
-    h4 {
-      display: inline-block;
-      font-weight: normal;
-      margin: 17px 462px 18px 20px;
-    }
+      h4 {
+        display: block;
+        font-weight: normal;
+        height: 15px;
+        margin: 17px 0 18px 20px;
+        overflow: hidden;
+        span{
+            display: inline-block;
+            float: right;
+            margin-right: 15px;
+            transform: translateY(-7px);
+        }
+      }
     hr {
       margin: 0;
       margin-bottom: 13px;

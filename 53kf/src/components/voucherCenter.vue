@@ -59,7 +59,7 @@ export default {
     ...mapState({
       distance: state => state.line.distance,
       sub: state => state.line.sub,
-      state: state => state.state.val
+      state: state => state.state.value
     })
   },
   methods: {

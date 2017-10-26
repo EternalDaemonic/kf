@@ -13,7 +13,7 @@
       </Col>
     </Row>
     <div class='retabe-table'>
-    <Row v-for="item in data" :key='item.set' v-if='select == "订单状态" ? true : select == item.set'>
+    <Row v-for="item in data" :key='item.time' v-if='select == "订单状态" ? true : select == item.set'>
       <Col  v-for="col in item" :key='col' span="4">{{col}}</Col>
     </Row>
     </div>
@@ -26,7 +26,6 @@ export default {
   data() {
     return {
       select: '订单状态',
-      key: '',
       options: [
         {
           value: '0',
